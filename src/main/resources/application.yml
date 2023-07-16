@@ -1,0 +1,43 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  graphql:
+    schema:
+      printer:
+        enabled: true
+
+server:
+  http2:
+    enabled: true
+
+graphql:
+  voyager:
+    enabled: true
+    basePath: /
+    mapping: /voyager
+    endpoint: /graphql
+    cdn:
+      enabled: false
+      version: latest
+    pageTitle: Voyager
+    displayOptions:
+      skipRelay: true
+      skipDeprecated: true
+      rootType: Query
+      sortByAlphabet: false
+      showLeafFields: true
+      hideRoot: false
+    hideDocs: false
+    hideSettings: false
+  playground:
+    mapping: /playground
+    endpoint: /graphql
+    enabled: true
+    pageTitle: Playground
+    headers:
+      Authorization: Bearer Token
+    tabs:
+      - name: Clients Tab
+        query: classpath:playground/customer.graphql
+        variables: classpath:playground/variables.json

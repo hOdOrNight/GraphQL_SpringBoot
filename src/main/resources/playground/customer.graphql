@@ -1,0 +1,18 @@
+query getCustomerById($id: ID){
+  customerById(id : $id)
+  {
+    id
+    firstName
+    lastName
+  }
+}
+
+
+query getAllCustomers {
+  customers{
+    id
+    firstName
+    lastName
+    email
+  }
+}
